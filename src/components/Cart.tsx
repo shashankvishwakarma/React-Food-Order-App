@@ -1,4 +1,4 @@
-import Model from "./UI/Model";
+import Model from "./UI/Modal";
 import {useContext} from "react";
 import CartContext from "./store/CartContext";
 import {currencyFormatter} from "./../util/formatting"
@@ -18,7 +18,13 @@ export default function Cart() {
     userProgressContext.hideCart();
   }
 
-  return <Model className="cart" open={userProgressContext.progress === 'cart'}>
+  function handleGoToCheckout() {
+    userProgressContext.showCheckout();
+  }
+
+  return <Model className="cart"
+                open={userProgressContext.progress === 'cart'}
+                onClose={userProgressContext.progress === 'cart' ? handleCloseCart : null}>
     <h2>Your Cart</h2>
     <ul>
       {cartContext.items.map((item) => (
@@ -38,7 +44,7 @@ export default function Cart() {
         Close
       </Button>
       {cartContext.items.length > 0 && (
-          <Button onClick={handleCloseCart}>Go to Checkout</Button>
+          <Button onClick={handleGoToCheckout}>Go to Checkout</Button>
       )}
     </p>
   </Model>
