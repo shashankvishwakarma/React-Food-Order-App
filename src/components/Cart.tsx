@@ -1,9 +1,9 @@
 import Model from "./UI/Modal";
 import {useContext} from "react";
-import CartContext from "./store/CartContext";
+import CartContext from "../store/CartContext";
 import {currencyFormatter} from "./../util/formatting"
 import Button from "./UI/Button";
-import UserProgressContext from "./store/UserProgress";
+import UserProgressContext from "../store/UserProgress";
 import CartItem from "./CartItem";
 
 export default function Cart() {
@@ -22,6 +22,7 @@ export default function Cart() {
     userProgressContext.showCheckout();
   }
 
+  // @ts-ignore
   return <Model className="cart"
                 open={userProgressContext.progress === 'cart'}
                 onClose={userProgressContext.progress === 'cart' ? handleCloseCart : null}>

@@ -8,9 +8,11 @@ export default function Modal({children, open, onClose, className = ''}) {
     const modal = dialog.current;
 
     if (open) {
+      // @ts-ignore
       modal.showModal();
     }
 
+    // @ts-ignore
     return () => modal.close();
   }, [open]);
 

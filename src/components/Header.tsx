@@ -1,9 +1,9 @@
 // @ts-ignore
 import logoImg from '../assets/logo.jpg';
 import Button from "./UI/Button";
-import {useContext} from "react";
-import CartContext from "./store/CartContext";
-import UserProgressContext from "./store/UserProgress";
+import React, {useContext} from "react";
+import CartContext from "../store/CartContext";
+import UserProgressContext from "../store/UserProgress";
 
 export default function Header() {
 
@@ -18,6 +18,8 @@ export default function Header() {
     userProgressContext.showCart();
   }
 
+  // @ts-ignore
+  // @ts-ignore
   return (
       <header id="main-header">
         <div id="title">
